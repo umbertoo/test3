@@ -1,0 +1,19 @@
+.chat-head{
+  position: absolute;
+  top: 0;
+  border-bottom:  1px solid #ddd;
+  height: 60px;
+  width: 100%;
+  font-weight: 600;
+  font-family: 'roboto';
+  box-sizing: border-box;
+
+  &__avatar{
+    height: 40px;
+    width: 40px;
+    float: left;
+  }
+  &__username{
+    float: left;
+  }
+}

@@ -1,0 +1,75 @@
+@import "./colors/colors";
+.message-block{
+  padding: 0px 14px 0px 51px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'roboto';
+  &.-is-own{
+    text-align: right;
+  }
+  &.-is-own &__text{
+    background-color: $blue;
+    color: #fff;
+    text-align: left;
+  }
+  &.-is-own a{
+    color: #fff;
+  }
+  &__username{
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    color: #9a9a9a;
+  }
+  &__date{
+    display: none;
+    color: #7f8187;
+    font-size: 12px;
+  }
+  &__avatar{
+    overflow: hidden;
+    position: absolute;
+    left: 10px;
+    box-sizing: border-box;
+    border-radius: 50px;
+    bottom: 0px;
+    width: 30px;
+    height: 30px;
+  }
+
+
+  &__text{
+    display: inline-block;
+    box-sizing: border-box;
+    max-width: 100%;
+    border-radius: 20px;
+    background-color: #f7f7f7;
+    color: #444;
+    font-weight: 500;
+    padding: 9px 23px 8px 22px;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'roboto';
+    word-wrap: break-word;
+
+    p{
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .emoji , .emoji-inner{
+    height: 26px;
+    width: 26px;
+    vertical-align: middle;
+    display: inline-block;
+    background-size: cover;
+  }
+  .emojione{
+    height: 22px;
+    width: 22px;
+    vertical-align: middle;
+    display: inline;
+  }
+
+}

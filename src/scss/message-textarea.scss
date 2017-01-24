@@ -1,0 +1,37 @@
+.message-textarea{
+  position: relative;
+  width: 100%;
+
+  &__input{
+    min-height: 50px;
+    background-color: #fff;
+    color: #111;
+    outline: none;
+    width: 100%;
+    font-size: 15px;
+    padding: 15px 38px 13px 12px;
+    border: none;
+    resize: none !important;
+    line-height: 19px;
+    box-sizing: border-box;
+    font-weight: 500;
+    font-family: 'roboto';
+    vertical-align: top;
+  }
+  &__emoji{
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &__emoji-btn{
+    background-image: url("//cdn.jsdelivr.net/emojione/assets/png/1f642.png?v=2.2.6");
+    opacity: 0.3;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
