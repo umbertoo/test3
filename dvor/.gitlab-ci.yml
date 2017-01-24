@@ -1,0 +1,27 @@
+stages:
+  - build
+  - deploy
+  
+variables:
+  GIT_SSL_NO_VERIFY: "true"
+  CONTAINER_IMAGE: registry.gl.sdvor.com/frontend/sdvor-mobile-v2
+  CONTAINER_IMAGE_REF: registry.gl.sdvor.com/frontend/sdvor-mobile-v2:$CI_BUILD_REF_NAME
+  
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gl.sdvor.com
+  
+build:
+ stage: build
+ script:
+   - docker build -t $CONTAINER_IMAGE_REF .
+   - docker push $CONTAINER_IMAGE_REF
+
+deploy-to-dev:
+  stage: deploy
+  environment:
+    url: https://m.sdvor-dev.com
+    name: development
+  script:
+    - ansible-playbook deploy-playbook.yml -e @/srv/projects/deploy/m.sdvor-dev.com/vault-dev.yml
+  only:
+    - development

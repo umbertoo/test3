@@ -1,0 +1,23 @@
+---
+- hosts: "{{ANSIBLE_HOST}}"
+  tasks:
+    - name: Sign in Gitlab registry
+      docker_login:
+        registry: registry.gl.sdvor.com
+        username: "{{REGISTRY_USER}}"
+        password: "{{REGISTRY_PASSWORD}}"
+        reauthorize: yes
+    - name: Deploy container
+      docker_container:
+        name: "m.sdvor.com"
+        image: "registry.gl.sdvor.com/frontend/sdvor-mobile-v2:{{BRANCH}}"
+        pull: true
+        state: started
+        recreate: yes
+        ports:
+          - "3003:3003"
+        env:
+          NODE_ENV: "{{NODE_ENV}}"
+          API_URL_SDVOR: "{{API_URL_SDVOR}}"
+          API_URL_CATALOG: "{{API_URL_CATALOG}}"
+...
